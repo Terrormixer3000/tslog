@@ -24,7 +24,8 @@
     "api-extractor": "tsc && mkdir -p ./docs/api_extractor && api-extractor run --local --verbose",
     "typedoc": "typedoc",
     "generate-all-docs": "npm run api-extractor && typedoc",
-    "release": "np"
+    "release": "np",
+    "prepare": "npm run build"
   },
   "jest": {
     "verbose": true,
@@ -75,8 +76,7 @@
     "ts-jest": "^27.1.3",
     "ts-node": "^10.5.0",
     "typedoc": "^0.22.11",
-    "typescript": "^4.5.5",
-    "prepare": "npm run build"
+    "typescript": "^4.5.5"
   },
   "dependencies": {
     "source-map-support": "^0.5.21"
