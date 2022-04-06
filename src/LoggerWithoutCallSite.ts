@@ -701,7 +701,10 @@ export class LoggerWithoutCallSite {
           this.settings.colorizePrettyLogs
         )
       );
-
+      //this._printUsefulStack(std, logObject.stack)
+      //hier nicht möglich, da hier kein natives Error Object vorhanden ist
+      //aber auch nicht tragisch, da diese Funktion hier nur aufgerufen wird, wenn von tslog ein stacktrace ausgegeben werden soll,
+      //der nicht von einem Error Object bereits vorhanden ist (logger.trace oder exposeStack = true)
       this._printPrettyStack(std, logObject.stack);
     }
   }
@@ -751,12 +754,22 @@ export class LoggerWithoutCallSite {
           this.settings.colorizePrettyLogs
         )
       );
-
-      this._printPrettyStack(std, errorObject.stack);
+      this._printUsefulStack(std, errorObject.nativeError.stack);
+      //this._printPrettyStack(std, errorObject.stack);
     }
     if (errorObject.codeFrame != null) {
       this._printPrettyCodeFrame(std, errorObject.codeFrame);
     }
+  }
+
+  private _printUsefulStack(std: IStd, stack: string | undefined): void {
+    std.write("\n");
+    if (stack !== undefined) {
+      std.write(stack);
+    } else {
+      std.write("you should see here an error stack...");
+    }
+    std.write("\n\n");
   }
 
   private _printPrettyStack(std: IStd, stackObjectArray: IStackFrame[]): void {
