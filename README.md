@@ -1,4 +1,5 @@
 ## 📝 tslog: Beautiful logging experience for Node.js with TypeScript support
+<br>dist folder must be actual! It will be used from npm!</br>
 
 [![lang: Typescript](https://img.shields.io/badge/Language-Typescript-Blue.svg?style=flat-square)](https://www.typescriptlang.org)
 ![License: MIT](https://img.shields.io/npm/l/tslog?logo=tslog&style=flat-square)
