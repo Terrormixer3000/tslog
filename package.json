@@ -25,7 +25,7 @@
     "typedoc": "typedoc",
     "generate-all-docs": "npm run api-extractor && typedoc",
     "release": "np",
-    "prepare": "npm run build"
+    "prepare": ""
   },
   "jest": {
     "verbose": true,
